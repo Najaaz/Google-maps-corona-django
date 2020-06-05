@@ -1,0 +1,309 @@
+$dark_green : rgb(14, 93, 158);
+$light_green : rgb(117, 188, 255);
+$light_green_transparent: rgba(116, 196, 250, 0.787);
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.info-title{
+    font-family: Arial;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.info-confirmed, .info-recovered, .info-death{
+    display: flex;
+}
+
+.info-confirmed i , .info-recovered i , .info-death i{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-death, .info-recovered, .info-confirmed{
+    padding-bottom: 5px;
+}
+
+.info-confirmed , .info-recovered{
+    padding-right: 10px;
+}
+
+.info-confirmed i{
+    background: orange;
+}
+.info-recovered i{
+    background: rgb(132, 202, 28);
+}
+.info-death i{
+    background: red;
+}
+
+.info-stats{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 10px;
+    height: 100%;
+
+    input{
+        width: 100%;
+        font-size: 21px;
+        background: transparent;
+        outline: none;
+        border: none;
+    }
+
+    ::placeholder{
+        color: $dark_green;
+    }
+
+    i{
+        color: $dark_green;
+        font-size: 23px;
+    }
+}
+
+.button-type{
+    margin-left: 5px;
+    margin-top: 1px;
+    position: absolute;
+    z-index: 5;
+    bottom: 1px;
+
+    button{
+        border-radius: 20px;
+    }
+}
+
+.window-info-title{
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom:5px;
+}
+
+.window-stats-title{
+
+    div{
+        margin-bottom: 3px;
+        padding-left: 10px;
+        padding-right: 12px;
+        height: 20px;
+        flex-grow: 1;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+    .window-stats-infected{
+        background: orange;
+    }
+    .window-stats-recovered{
+        background: greenyellow;
+    }
+    .window-stats-death{
+        background: red;
+    }
+    .window-stats-critical{
+        background: rgb(42, 212, 190);
+    }
+    .window-stats-active{
+        background: rgb(42, 212, 190);
+    }
+}
+
+
+/* ---Styling for a desktop--- */
+@media (min-width:900px){
+    #map{
+        width: 100%;
+        height: 100vh;
+        margin-left: 5px;
+        padding: 0;
+    }
+
+    .copyright-container{
+        position: absolute;
+        z-index: 5;
+        right: 5px;
+        bottom: 0px;
+        
+        h5{
+            padding: 2px;
+            background: white; 
+        }
+    }
+
+    .copyright-container h5::before{
+        content: "©Najaaz";
+    }
+
+    .cont{
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        flex-grow: 2;
+    }
+
+    .title{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 50px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.993);
+    }
+
+    .search-container{
+        width: 300px;
+        height: 45px;
+        background-color: $light_green_transparent;
+        border-radius: 30px;
+        margin-bottom: 10px;
+    }
+
+    
+
+    .country-container{
+        background-image: linear-gradient(to right , $light_green ,$light_green_transparent);
+        width: 300px;
+        border-radius: 30px;
+        overflow-y: scroll;
+        top: 180px;
+        bottom: 35px;
+        position: absolute;
+        /*height: 50vh;
+        flex-grow: 1;
+        clear: left;*/   
+    }
+
+    ::-webkit-scrollbar{
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: $dark_green;
+        border-radius: 20px;
+    }
+
+    .country-container-list{
+        display: grid;
+        margin: 15px;
+    }
+
+    .info-title{
+        font-size: 25px;
+    }
+    .info{
+        border-bottom: 1px solid $dark_green;
+        margin-top: 5px;
+    }
+
+    .info-list{
+        padding: 5px;
+        border-radius: 15px;
+        margin-bottom: 3px;
+        cursor: pointer;
+        transition: 0.7s;
+    }
+
+    .info-list:hover{
+        background-color: slateblue;
+    }
+
+    .window{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .window-stats-title{
+        font-size: 15px;
+    }
+    
+}
+
+
+
+/*---Styling for a mobile---*/
+@media (max-width:899px){
+    .cont{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #map{
+        width: 100%;
+        height: 60vh;
+        bottom: 2px;
+    }
+    .title-container{
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+    }
+    .title{
+        position: absolute;
+        z-index: 5;
+        font-weight: bold;
+        color: rgb(119, 119, 119);
+        top: 52%;
+        flex-grow: 1;
+        font-size: 30px;
+        background: rgba(245, 245, 245, 0.856);
+        border-radius: 10px;
+    }
+    .search-container{
+        left: 4px;
+        right: 4px;
+        height: 45px;
+        z-index: 50;
+        background-color: $light_green_transparent;
+        border-radius: 30px;
+        margin-bottom: 10px;
+    }
+
+    .country-container{
+        background-image: linear-gradient(to right , $light_green ,$light_green_transparent);
+        left: 4px;
+        right: 4px;
+        bottom: 35px;
+        height: 25vh;
+        border-radius: 30px;
+        overflow-y: scroll;
+        position: absolute;  
+    }
+
+    .country-container-list{
+        display: grid;
+        margin: 10px;
+    }
+
+    .info{
+        border-bottom: 1px solid $dark_green;
+        margin-top: 5px;
+    }
+
+    .info-list{
+        padding: 5px;
+        border-radius: 15px;
+        margin-bottom: 3px;
+    }
+
+    .info-title{
+        font-size: 20px;
+    }
+
+    .window-stats-title{
+        font-size: 15px;
+    }  
+    
+    .window{
+        width: 190px;
+    }
+}
